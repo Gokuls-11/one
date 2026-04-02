@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+            <title>login</title>
+
+    </head>
+    <body>
+        <br><br><br><br><br><br><br>
+        
+        
+        <center>
+            <h1>Login</h1>
+            <br><br><br><br><br><br><br>
+        <label for="user">User name : </label>
+        <input id="user" type="text" placeholder="Enter user name">
+        <br>
+        <br>
+        <br>
+        <label for="pin">password   :   </label>
+        <input type="text" id="pin" placeholder="Enter pin">
+        <br>
+        <br>
+        <br>
+        <button onclick="call()"> submit </button>
+        
+
+        <p id="res"></p>
+        </center>
+        <script>
+            function call(){
+
+                let attempts = 0
+                let value = document.getElementById("pin").value;
+                if (value == "1234" ){
+                    document.getElementById("res").innerText = "correct password success";
+                    let u=document.getElementById("user").value;
+                    localStorage.setItem("user",JSON.stringify(u))
+                    window.location.href = "menu.html"
+                }
+                else{
+                    if(attempts == 3)
+                    {
+                        document.getElementById("res").innerText = " you are blocked";
+                    }
+                    else{
+                    document.getElementById("res").innerText = "Entered Wrong password"
+                    }
+                }
+                }
+        </script>
+
+
+
+
+    </body>
+</html>

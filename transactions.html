@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <title>Transaction History</title>
+</head>
+<body>
+    
+<p id="history"></p>
+</body>
+<script>
+    output=""
+
+    let data=JSON.parse(localStorage.getItem("data"))
+    for(let i=0;i<data.length;i++){
+        output+=data[i] + "<br>";
+    }
+    document.getElementById("history").innerHTML = output;
+
+
+</script>

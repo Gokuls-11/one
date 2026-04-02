@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<head>
+    <tilte>
+        ATM machine
+    </Tilte>
+</head>
+<body>
+   
+    
+    <p id="bal">Balance = ₹5000 </p>
+    <label for="amt">Enter Amount : </label>
+    <input type="Number" id="amt" placeholder="Enter amount">
+
+    <button onclick="Deposite()" style="background-color:green; color:white;">Deposite</button>
+    <button onclick="Withdraw()" style="background-color:red; color:white;">Withdraw</button>
+    <p id="status"></p>
+    <button onclick="view()">View Transactions</button>
+    <button onclick="receipt()"  style="background-color:rgb(33, 17, 96); color:white;">Receipt</button>
+    <p id = "track"></p>
+
+
+
+
+</body>
+<script>
+
+    let balance=5000
+    let transactions=[]
+    function Deposite(){
+    
+        let amt = parseInt(document.getElementById("amt").value);
+
+        if(amt % 100 == 0){
+            balance+=amt;
+            transactions.push("deposited | ₹" + amt +" | Balance ₹ " + balance);
+            document.getElementById("status").innerText= ""
+            update();
+        }
+        else{
+            document.getElementById("status").innerText= "You can deposite only in multiples of 100"
+        }
+    }
+    function Withdraw(){
+
+
+        let amt = parseInt(document.getElementById("amt").value);
+
+
+
+
+        if(amt % 100 == 0 && amt <= balance){
+
+            balance-=amt;
+            transactions.push("Withdrawed | ₹" + amt +" | Balance ₹ " + balance);
+            document.getElementById("status").innerText= ""
+            update();
+
+        }
+        else{
+
+            document.getElementById("status").innerText= "You can withdraw only in multiples of 100"
+            update()
+
+        }
+    }
+    function update()
+    {
+        document.getElementById("bal").innerText = "Balance : " + balance;
+    }
+
+    function view(){
+        
+        let output = ""
+        for(let i=0 ; i < transactions.length ; i++){
+            output += transactions[i] + "<br>";
+            
+
+        }
+       
+       //method 1
+       localStorage.setItem("data",JSON.stringify(transactions));
+       window.location.href ="transactions.html";
+
+       //method 2
+       new_tab=window.open("","_blank");
+       new_tab.document.write("<h1> Transaction History </h1>");
+       new_tab.document.write(output)
+
+        //method 3
+        document.getElementById("track").innerHTML = output;
+    }
+
+    function receipt(){
+
+       localStorage.setItem("receipt",JSON.stringify(transactions[transactions.length -1]))
+       window.location.href = "receipt.html"
+
+    }
+
+</script>
