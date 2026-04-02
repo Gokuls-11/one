@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/nvgok/OneDrive%20-%20SSN-Institute/Academics/sem4/software/testpractice/mlruns/632748265480238164/2d6d510ec035400cbb4285e752758b4c/artifacts
+end_time: 1775094625985
+entry_point_name: ''
+experiment_id: '632748265480238164'
+lifecycle_stage: active
+run_id: 2d6d510ec035400cbb4285e752758b4c
+run_name: learned-mole-475
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1775094625924
+status: 3
+tags: []
+user_id: nvgok
