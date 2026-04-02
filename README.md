@@ -10,3 +10,7 @@ git push -u origin main
 
 Username → Gokuls-11
 Password → your GitHub Personal Access Token (PAT)
+
+python mlflow_run.py
+
+mlflow ui --backend-store-uri file:./mlruns
